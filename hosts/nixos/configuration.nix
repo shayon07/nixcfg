@@ -66,7 +66,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.mango.enable = true;
 
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
   system.stateVersion = "25.11";
 }
 
