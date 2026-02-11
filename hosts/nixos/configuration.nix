@@ -29,6 +29,22 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # XServer for NVIDIA
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
+
+  # SDDM with Plasma (provides session + fixes layout)
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
+  # Add basic Plasma for SDDM session detection (minimal)
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.defaultSession = "plasma";  # Default login
+
   services.seatd.enable = true;
 
   users.users.xox = {
@@ -38,7 +54,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty mangowc foot wl-clipboard grim slurp swaybg htop unzip
+    kitty mangowc foot wl-clipboard grim slurp swaybg htop unzip firefox
   ];
 
   programs.fish.enable = true;
@@ -47,7 +63,9 @@
   networking.firewall.allowedTCPPorts = [ 22 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
-  # NO displayManager - manual launch
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  programs.mango.enable = true;
+
   system.copySystemConfiguration = true;
   system.stateVersion = "25.11";
 }
