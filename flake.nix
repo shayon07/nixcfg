@@ -1,5 +1,5 @@
 {
-  description = "NixOS with MangoWC + Home Manager";
+  description = "NixOS + MangoWC + Home Manager setup";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -26,28 +26,36 @@
       modules = [
         mango.nixosModules.mango
         home-manager.nixosModules.home-manager
-
         ./hosts/nixos/configuration.nix
 
         {
+          # Home Manager configuration
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
           home-manager.users.xox = { pkgs, ... }: {
-            home.stateVersion = "23.11"; # change if needed
 
-            # Install Mango for user
+            home.stateVersion = "23.11"; # adjust if needed
+
+            # Install MangoWC, Rofi, Foot
             home.packages = [
               pkgs.mangowc
+              pkgs.rofi
+              pkgs.foot
             ];
 
-            # Provide Mango config in ~/.config
-            home.file.".config/mango/config.conf".source =
-              "${pkgs.mangowc}/etc/mango/config.conf";
+            # Create Mango config in ~/.config/mango/config.conf
+            home.file.".config/mango/config.conf".text = ''
+              terminal = foot
+              launcher = rofi
+              mod = Alt
+            '';
+            home.file.".config/mango/config.conf".force = true;
           };
         }
       ];
     };
   };
 }
+
 
