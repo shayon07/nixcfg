@@ -22,40 +22,39 @@
   {
     nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
       inherit system;
-
       modules = [
         mango.nixosModules.mango
         home-manager.nixosModules.home-manager
+        
+        # Your main system config
         ./hosts/nixos/configuration.nix
 
+        # Home-Manager for user xox (FIXED: no 'inputs' reference)
         {
-          # Home Manager configuration
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          # Removed: home-manager.extraSpecialArgs = { inherit inputs; };
 
           home-manager.users.xox = { pkgs, ... }: {
+            home.stateVersion = "25.11";
 
-            home.stateVersion = "23.11"; # adjust if needed
+            # MangoWC config from your ~/nixcfg/home/mango/config.conf
+            home.file.".config/mango/config.conf".source = ./home/mango/config.conf;
 
-            # Install MangoWC, Rofi, Foot
-            home.packages = [
-              pkgs.mangowc
-              pkgs.rofi
-              pkgs.foot
+            # Essential packages
+            home.packages = with pkgs; [
+              mangowc
+              kitty
+              foot
+              wl-clipboard
+              grim
+              slurp
+              swaybg
             ];
-
-            # Create Mango config in ~/.config/mango/config.conf
-            home.file.".config/mango/config.conf".text = ''
-              terminal = foot
-              launcher = rofi
-              mod = Alt
-            '';
-            home.file.".config/mango/config.conf".force = true;
           };
         }
       ];
     };
   };
 }
-
 
