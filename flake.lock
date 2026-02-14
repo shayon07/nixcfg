@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "dms": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1768575133,
+        "narHash": "sha256-P//moH3z9r4PXirTzXVsccQINsK5AIlF9RWOBwK3vLc=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "a7cdb39b0b89b9af86160ad4e847a7d14ea44512",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "ref": "stable",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -25,11 +47,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770818644,
-        "narHash": "sha256-DYS4jIRpRoKOzJjnR/QqEd/MlT4OZZpt8CrBLv+cjsE=",
+        "lastModified": 1770915843,
+        "narHash": "sha256-ZwU5wXKNqpOQvjNz6aBp1j5peiBZow1++6pLnk5VAhs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0acbd1180697de56724821184ad2c3e6e7202cd7",
+        "rev": "6a1f7101d2c3ee87d485a87880d73b4665c6a4bd",
         "type": "github"
       },
       "original": {
@@ -38,7 +60,7 @@
         "type": "github"
       }
     },
-    "mango": {
+    "mangowc": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": [
@@ -47,16 +69,16 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1770813884,
-        "narHash": "sha256-vd+qGss0q8eIDenzKhWqHOGyG/431jSlCFYgMsSSg5s=",
+        "lastModified": 1770893703,
+        "narHash": "sha256-GiosDvsF+aY2V5+cK0zzeb2au/Wum8O+qhbQiC0fNrs=",
         "owner": "DreamMaoMao",
-        "repo": "mango",
-        "rev": "8484093e324a5e305e35dbf4c369d9065a0ad26c",
+        "repo": "mangowc",
+        "rev": "313adefd10c6de9671aef85fc715df3f7564cf21",
         "type": "github"
       },
       "original": {
         "owner": "DreamMaoMao",
-        "repo": "mango",
+        "repo": "mangowc",
         "type": "github"
       }
     },
@@ -91,17 +113,40 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "dms",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766725085,
+        "narHash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs=",
+        "ref": "refs/heads/master",
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "revCount": 715,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
+      },
+      "original": {
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "type": "git",
+        "url": "https://git.outfoxxed.me/quickshell/quickshell"
+      }
+    },
     "root": {
       "inputs": {
+        "dms": "dms",
         "home-manager": "home-manager",
-        "mango": "mango",
+        "mangowc": "mangowc",
         "nixpkgs": "nixpkgs"
       }
     },
     "scenefx": {
       "inputs": {
         "nixpkgs": [
-          "mango",
+          "mangowc",
           "nixpkgs"
         ]
       },
