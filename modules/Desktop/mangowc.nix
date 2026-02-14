@@ -1,4 +1,6 @@
 {
 	# MangoWc
-	programs.mango.enable = true;
+	programs.mango = {
+        enable = true;
+    };
 }

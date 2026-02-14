@@ -8,7 +8,7 @@
         ../../modules/home/nvim.nix
         ../../modules/home/fish.nix
         ../../modules/home/starship.nix
-        ../../modules/home/rofi.nix
+        ../../modules/home/Desktop/mangowc.nix
     ];
 
     home.username = "xox";
