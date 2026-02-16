@@ -1,5 +1,5 @@
 {
-    description = "NixOS with MangoWc Setup";
+    description = "NixOS with MangoWc Setup";  # ← Unchanged
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -15,30 +15,61 @@
             url = "github:AvengeMedia/DankMaterialShell/stable";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix4nvchad = {
+            url = "github:nix-community/nix4nvchad";  # Official NvChad Nix flake
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, mangowc, ... }@inputs:
     let
-        system = "x86_64-linux";
-    in
-    {
-        nixosConfigurations.homelab = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+        # ↑ NEW: Extract common library and system definition
+        lib = nixpkgs.lib;                    # Standard NixOS library (helps with list folding, etc.)
+        system = "x86_64-linux";              # Define once, use everywhere
+        
+        # ↑ NEW: DRY principle - reusable function for any host
+        # Instead of repeating 30+ lines per host, define once
+        mkSystem = hostname: lib.nixosSystem {
+            inherit system;                           # Use defined system
+            specialArgs = { inherit inputs; };        # Pass all inputs to modules
             modules = [
-                ./hosts/homelab/configuration.nix
-	            mangowc.nixosModules.mango
+                # Host-specific configuration (your existing file)
+                ./hosts/${hostname}/configuration.nix
+                
+                # Core modules (your existing ones, unchanged order!)
+                mangowc.nixosModules.mango
                 home-manager.nixosModules.home-manager
+                
+                # Home Manager setup (your exact existing config)
                 {
                     home-manager = {
-	                    useGlobalPkgs = true;
+                        useGlobalPkgs = true;
                         useUserPackages = true;
-                        users.xox = import ./home/xox/home.nix;
-	                    extraSpecialArgs = { inherit inputs; };
                         backupFileExtension = "backup";
+                        users.xox = import ./home/xox/home.nix;  # Your existing user config
+                        extraSpecialArgs = { inherit inputs; };
                     };
                 }
             ];
         };
+    in {
+        # ↑ NEW: Organized output structure (standard flake pattern)
+        # Now supports multiple hosts easily
+        nixosConfigurations = {
+            homelab = mkSystem "homelab";  # ← Your existing host, now using mkSystem
+            # mylaptop = mkSystem "mylaptop"; # ← Add more hosts like this (1 line each)
+        };
+
+        # ↑ NEW: Development tools (nice-to-have, optional)
+        devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
+            buildInputs = [ nixpkgs.legacyPackages.${system}.nil ];  # Nix LSP for editors
+            shellHook = ''
+                echo "NixOS config dev environment"
+            '';
+        };
+
+        # ↑ NEW: Code formatter (runs with `nix fmt`)
+        formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
     };
 }
 

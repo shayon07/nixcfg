@@ -105,7 +105,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
@@ -140,14 +140,14 @@
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
-  "sortAppsAlphabetically": false,
+  "sortAppsAlphabetically": true,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "wifi",
-  "vpnLastConnected": "c66a645c-1ba9-449e-ae17-27095128b0ee",
+  "vpnLastConnected": "6ce701ea-750b-4412-a2f0-b6ceae282cbd",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "Vimix-cursors",
@@ -165,7 +165,7 @@
       "cursorHideTimeout": 0
     }
   },
-  "launcherLogoMode": "apps",
+  "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "",
   "launcherLogoColorInvertOnMode": false,
@@ -197,7 +197,7 @@
   "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
   "batteryProfileName": "",
-  "batteryChargeLimit": 100,
+  "batteryChargeLimit": 95,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
@@ -221,19 +221,19 @@
   "matugenTemplateMangowc": true,
   "matugenTemplateQt5ct": false,
   "matugenTemplateQt6ct": false,
-  "matugenTemplateFirefox": true,
+  "matugenTemplateFirefox": false,
   "matugenTemplatePywalfox": false,
   "matugenTemplateZenBrowser": true,
-  "matugenTemplateVesktop": true,
+  "matugenTemplateVesktop": false,
   "matugenTemplateEquibop": false,
-  "matugenTemplateGhostty": true,
+  "matugenTemplateGhostty": false,
   "matugenTemplateKitty": true,
   "matugenTemplateFoot": false,
   "matugenTemplateAlacritty": false,
-  "matugenTemplateNeovim": true,
+  "matugenTemplateNeovim": false,
   "matugenTemplateWezterm": false,
   "matugenTemplateDgop": true,
-  "matugenTemplateKcolorscheme": true,
+  "matugenTemplateKcolorscheme": false,
   "matugenTemplateVscode": false,
   "showDock": false,
   "dockAutoHide": false,
@@ -295,7 +295,7 @@
     "suspend",
     "restart"
   ],
-  "powerMenuDefaultAction": "logout",
+  "powerMenuDefaultAction": "suspend",
   "powerMenuGridLayout": false,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",
@@ -511,6 +511,10 @@
   "desktopWidgetGridSettings": {},
   "desktopWidgetInstances": [],
   "desktopWidgetGroups": [],
-  "builtInPluginSettings": {},
+  "builtInPluginSettings": {
+    "dms_settings_search": {
+      "trigger": "?"
+    }
+  },
   "configVersion": 5
 }

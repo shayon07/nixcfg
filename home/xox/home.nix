@@ -5,7 +5,7 @@
     imports = [
         ../../modules/home/Desktop/dms.nix
         ../../modules/home/kitty.nix
-        ../../modules/home/nvim.nix
+        ../../modules/home/nvim/nvchad.nix
         ../../modules/home/fish.nix
         ../../modules/home/starship.nix
         ../../modules/home/Desktop/mangowc.nix
@@ -19,18 +19,19 @@
         nerd-fonts.iosevka-term
         jetbrains-mono
         nerd-fonts.jetbrains-mono
+        vimix-cursors
     ];
     fonts.fontconfig.enable = true;
 
     # home.nix configuration
-    home.pointerCursor = {
-        gtk.enable = true;
-        x11.enable = true;
-        package = pkgs.vimix-cursors;  #vanilla-dmz; # or pkgs.bibata-cursors
-        name =  "Vimix-cursors";  #"Vanilla-DMZ"; # or "Bibata-Modern-Classic"
-        size = 36;
-    };
-    
+    # home.pointerCursor = {
+    #     gtk.enable = true;
+    #     x11.enable = true;
+    #     package = pkgs.vimix-cursors;  #vanilla-dmz; # or pkgs.bibata-cursors
+    #     name =  "Vimix-cursors";  #"Vanilla-DMZ"; # or "Bibata-Modern-Classic"
+    #     size = 30;
+    # };
+
     programs.git = {
         enable = true;
         settings = {

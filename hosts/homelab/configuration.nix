@@ -34,7 +34,7 @@
   users.users.xox = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "plugdev" "bluetooth" ];
-    packages = with pkgs; [ ghostty ];
+    packages = with pkgs; [ ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -63,6 +63,7 @@
     nodejs
     pamixer
     mako
+    pciutils
   ];
 
   programs.fish.enable = true;
