@@ -3,7 +3,7 @@
 {
   imports = [
     ./bluetooth.nix
-    ./pipewire.nix
+    ./sound.nix
     ./powerProfile.nix
     ./upower.nix
   ];

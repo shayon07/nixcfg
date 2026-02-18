@@ -20,6 +20,8 @@
         jetbrains-mono
         nerd-fonts.jetbrains-mono
         vimix-cursors
+        localsend
+        discord
     ];
     fonts.fontconfig.enable = true;
 

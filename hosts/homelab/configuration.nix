@@ -12,9 +12,9 @@
   ];
   
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
+  # nixpkgs.config.allowBroken = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.zfs.package = pkgs.zfs_unstable;
   boot.loader.zfsbootmenu = {
     enable = true;
@@ -29,7 +29,8 @@
   # Graphics + NVIDIA
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  
+  hardware.enableRedistributableFirmware = true;
+
   services.seatd.enable = true;
   users.users.xox = {
     isNormalUser = true;
@@ -49,28 +50,25 @@
     xorg.xrdb
     wlr-randr           # For monitor testing
     cliphist
-    swww
     thunar
     bluez
     bluez-tools
     power-profiles-daemon 
     powertop 
     acpi
-    zip
-    unzip
     eza
-    python3
-    nodejs
     pamixer
-    mako
     pciutils
+    mesa-demos
+    alsa-utils
+    pavucontrol
   ];
 
   programs.fish.enable = true;
   programs.firefox.enable = true;
 
   services.openssh.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ 22 53317 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
