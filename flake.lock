@@ -106,7 +106,9 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nvchad-starter": "nvchad-starter"
+        "nvchad-starter": [
+          "nvchad-starter"
+        ]
       },
       "locked": {
         "lastModified": 1770960282,
@@ -156,17 +158,16 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1753939018,
-        "narHash": "sha256-xdLr6tlU9uA+wu0pqha2br0fdVm+1MjgjbB5awz9ICU=",
-        "owner": "NvChad",
-        "repo": "starter",
-        "rev": "e3572e1f5e1c297212c3deeb17b7863139ce663e",
+        "lastModified": 1771530404,
+        "narHash": "sha256-xCud5jCgzphNxeDpXj8l2xh4psufdDtqFTu7HReNSIM=",
+        "owner": "shayon07",
+        "repo": "nvim",
+        "rev": "e8d6823cceb889b513ab7e0c607e5bef2e4de311",
         "type": "github"
       },
       "original": {
-        "owner": "NvChad",
-        "ref": "main",
-        "repo": "starter",
+        "owner": "shayon07",
+        "repo": "nvim",
         "type": "github"
       }
     },
@@ -198,7 +199,8 @@
         "home-manager": "home-manager",
         "mangowc": "mangowc",
         "nix4nvchad": "nix4nvchad",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nvchad-starter": "nvchad-starter"
       }
     },
     "scenefx": {

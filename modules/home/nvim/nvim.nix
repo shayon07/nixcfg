@@ -1,4 +1,3 @@
-# modules/home/nvchad.nix
 { inputs, pkgs, ... }:
 {
     programs.neovim = {

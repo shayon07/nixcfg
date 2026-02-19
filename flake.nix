@@ -15,9 +15,15 @@
             url = "github:AvengeMedia/DankMaterialShell/stable";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nvchad-starter = {
+            url = "github:shayon07/nvim";
+            # url = "path:<local_path>" # <- for local relative folder (e.g. path:./home/nvim) 
+            flake = false;
+        };
         nix4nvchad = {
             url = "github:nix-community/nix4nvchad";  # Official NvChad Nix flake
             inputs.nixpkgs.follows = "nixpkgs";
+            inputs.nvchad-starter.follows = "nvchad-starter"; # <- overwrite the module input here
         };
     };
 
