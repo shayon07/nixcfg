@@ -24,7 +24,7 @@
   # Keep SOF driver, disable AVS and HDA to avoid conflicts
   boot.kernelModules = [ "snd_sof_pci_intel_tgl" ];
   boot.blacklistedKernelModules = [ "snd_soc_avs" "snd_hda_intel" ];
-  boot.kernelParams = [ ]; # no dsp_driver override
+  boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=3" ];
 
   # Ensure firmware is available to SOF driver
   hardware.enableRedistributableFirmware = true;

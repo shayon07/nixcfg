@@ -22,6 +22,7 @@
         vimix-cursors
         localsend
         discord
+        heroic
     ];
     fonts.fontconfig.enable = true;
 
