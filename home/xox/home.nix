@@ -33,6 +33,11 @@
     heroic
   ];
 
+  home.file.".config/DankMaterialShell/settings.json" = {
+    source = ../../config/DankMaterialShell/settings.json;
+    mode = "copy"; # Creates real writable file with 644 permissions
+  };
+
   fonts.fontconfig.enable = true;
 
   # home.nix configuration
