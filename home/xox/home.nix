@@ -33,10 +33,14 @@
     heroic
   ];
 
-  home.file.".config/DankMaterialShell/settings.json" = {
-    source = ../../config/DankMaterialShell/settings.json;
-    mode = "copy"; # Creates real writable file with 644 permissions
-  };
+  home.activation.setupDankMaterial = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [[ ! -f $HOME/.config/DankMaterialShell/settings.json ]]; then
+      $DRY_RUN_CMD mkdir -p $HOME/.config/DankMaterialShell
+      $DRY_RUN_CMD cp ${../../config/DankMaterialShell/settings.json} $HOME/.config/DankMaterialShell/settings.json
+      $DRY_RUN_CMD chmod 666 $HOME/.config/DankMaterialShell/settings.json
+      $VERBOSE_ECHO "Copied DankMaterialShell settings.json (first time setup)"
+    fi
+  '';
 
   fonts.fontconfig.enable = true;
 
