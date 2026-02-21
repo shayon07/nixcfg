@@ -266,8 +266,7 @@
     env=XCURSOR_SIZE,30
 
     # Qt applications (Wayland/X11 compatibility)
-    # env=QT_QPA_PLATFORMTHEME,qt5ct
-    env=QT_QPA_PLATFORMTHEME,gtk3
+    env=QT_QPA_PLATFORMTHEME,qt5ct
     env=QT_AUTO_SCREEN_SCALE_FACTOR,1
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,100
