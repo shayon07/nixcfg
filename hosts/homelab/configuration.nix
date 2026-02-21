@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ../../lib/zfsbootmenu.nix
     ../../modules/Desktop/mangowc.nix
@@ -10,11 +15,11 @@
     ../../modules/system/Greeters/sddm.nix
     ../../modules/system/Daemons/xserver.nix
   ];
-  
+
   nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.allowBroken = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.zfs.package = pkgs.zfs_unstable;
   boot.loader.zfsbootmenu = {
     enable = true;
@@ -34,29 +39,31 @@
   services.seatd.enable = true;
   users.users.xox = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "plugdev" "bluetooth" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "plugdev"
+      "bluetooth"
+    ];
     packages = with pkgs; [ ];
   };
 
   environment.systemPackages = with pkgs; [
-    git 
-    tree 
-    wl-clipboard 
-    bat 
-    btop 
+    git
+    tree
+    wl-clipboard
+    bat
+    btop
     neovim
     kitty
     xwayland-satellite
     xorg.xrdb
-    wlr-randr           # For monitor testing
+    wlr-randr # For monitor testing
     cliphist
-    thunar
     bluez
     bluez-tools
-    power-profiles-daemon 
-    powertop 
-    acpi
-    eza
+    power-profiles-daemon
+    powertop
     pamixer
     pciutils
     mesa-demos
@@ -68,9 +75,15 @@
   programs.firefox.enable = true;
 
   services.openssh.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 53317 ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    53317
+  ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   system.stateVersion = "25.11";
 }

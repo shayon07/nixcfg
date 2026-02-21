@@ -1,19 +1,3 @@
-# { config, pkgs, ... }:
-# {
-#   hardware.pulseaudio.enable = false;
-#   # rtkit (optional, recommended) allows Pipewire to use the realtime scheduler for increased performance.
-#   security.rtkit.enable = true;
-#   #Audio (Pipewire)
-# 	services.pipewire = {
-# 		enable = true;
-#     alsa.enable = true;
-#     alsa.support32Bit = true;
-# 		pulse.enable = true;
-#     jack.enable = true;
-#     wireplumber.enable = true;
-# 	};
-# }
-
 { config, pkgs, ... }:
 
 {
@@ -23,7 +7,10 @@
 
   # Keep SOF driver, disable AVS and HDA to avoid conflicts
   boot.kernelModules = [ "snd_sof_pci_intel_tgl" ];
-  boot.blacklistedKernelModules = [ "snd_soc_avs" "snd_hda_intel" ];
+  boot.blacklistedKernelModules = [
+    "snd_soc_avs"
+    "snd_hda_intel"
+  ];
   boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=3" ];
 
   # Ensure firmware is available to SOF driver
@@ -33,7 +20,7 @@
   ];
 
   # Pipewire + ALSA setup
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -48,4 +35,3 @@
     alsa-ucm-conf
   ];
 }
-

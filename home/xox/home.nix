@@ -19,15 +19,27 @@
   home.username = "xox";
   home.homeDirectory = "/home/xox";
   home.stateVersion = "25.11";
+  home.activation.setupDankMaterial = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [[ ! -f $HOME/.config/DankMaterialShell/settings.json ]]; then
+      $DRY_RUN_CMD mkdir -p $HOME/.config/DankMaterialShell
+      $DRY_RUN_CMD cp ${../../config/DankMaterialShell/settings.json} $HOME/.config/DankMaterialShell/settings.json
+      $VERBOSE_ECHO "Copied DankMaterialShell settings.json (first time setup)"
+    fi
+  '';
+
   home.packages = with pkgs; [
     iosevka # Base Iosevka
     nerd-fonts.iosevka-term
     jetbrains-mono
     nerd-fonts.jetbrains-mono
     vimix-cursors
+    papirus-icon-theme
+    adwaita-icon-theme
+    eza
     zip
     unzip
     python3
+    thunar
     localsend
     discord
     heroic
