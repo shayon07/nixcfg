@@ -62,7 +62,6 @@
   ];
 
   programs.fish.enable = true;
-  programs.firefox.enable = true;
 
   services.openssh.enable = true;
   networking.firewall.allowedTCPPorts = [

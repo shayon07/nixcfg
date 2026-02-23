@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -20,6 +21,7 @@
   home.homeDirectory = "/home/xox";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     nerd-fonts.iosevka-term
     nerd-fonts.jetbrains-mono
     vimix-cursors

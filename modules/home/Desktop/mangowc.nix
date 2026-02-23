@@ -158,7 +158,7 @@
 
     # Launchers and apps
     bind=SUPER,Return,spawn,kitty
-    bind=SUPER,w,spawn,firefox
+    bind=SUPER,w,spawn,zen
 
     # ===============================================
     # MOUSE BINDINGS

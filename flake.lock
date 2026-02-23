@@ -158,11 +158,11 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1771530404,
-        "narHash": "sha256-xCud5jCgzphNxeDpXj8l2xh4psufdDtqFTu7HReNSIM=",
+        "lastModified": 1771882778,
+        "narHash": "sha256-ZL55nT7tWxBLaf56DZ2OMIeJ3mWFKxf5SRNI7+PZCAc=",
         "owner": "shayon07",
         "repo": "nvim",
-        "rev": "e8d6823cceb889b513ab7e0c607e5bef2e4de311",
+        "rev": "7dd399a6c127f527b27ffe3783b08bcee4865f31",
         "type": "github"
       },
       "original": {
@@ -200,7 +200,8 @@
         "mangowc": "mangowc",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs",
-        "nvchad-starter": "nvchad-starter"
+        "nvchad-starter": "nvchad-starter",
+        "zen-browser": "zen-browser"
       }
     },
     "scenefx": {
@@ -236,6 +237,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771735013,
+        "narHash": "sha256-QAh0iw/AgjcaNvBE5OIZstxVxagLVK0RAuH7EhIL/N8=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "32b69f03007507fc012be9203efdd414f4bc0d66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
