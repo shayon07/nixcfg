@@ -20,13 +20,17 @@
   home.homeDirectory = "/home/xox";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
-    iosevka # Base Iosevka
     nerd-fonts.iosevka-term
-    jetbrains-mono
     nerd-fonts.jetbrains-mono
     vimix-cursors
+    pamixer
+    pavucontrol
     zip
     unzip
+    eza
+    thunar
+    wl-clipboard
+    cliphist
     python3
     localsend
     discord
