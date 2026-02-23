@@ -23,14 +23,14 @@
 
   # Keep SOF driver, disable AVS and HDA to avoid conflicts
   boot.kernelModules = [ "snd_sof_pci_intel_tgl" ];
-  boot.blacklistedKernelModules = [ "snd_soc_avs" "snd_hda_intel" ];
+  boot.blacklistedKernelModules = [
+    "snd_soc_avs"
+  ];
   boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=3" ];
 
   # Ensure firmware is available to SOF driver
-  hardware.enableRedistributableFirmware = true;
-  hardware.firmware = with pkgs; [
-    sof-firmware
-  ];
+  # hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
 
   # Pipewire + ALSA setup
   hardware.pulseaudio.enable = false;
@@ -41,11 +41,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   # Install ALSA UCM configs so SOF knows mic/speaker routing
   environment.systemPackages = with pkgs; [
+    sof-firmware
     alsa-ucm-conf
+    alsa-utils
   ];
 }
-
