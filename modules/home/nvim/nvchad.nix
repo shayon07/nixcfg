@@ -20,8 +20,8 @@
     nodePackages.bash-language-server
     dockerfile-language-server
     nil # Nix LSP
-    rustc
-    cargo # For Mason Rust-based installs
+    # rustc
+    # cargo # For Mason Rust-based installs
     clang-tools
     (python3.withPackages (
       ps: with ps; [

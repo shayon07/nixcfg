@@ -32,6 +32,7 @@
     wl-clipboard
     cliphist
     python3
+    qutebrowser
     localsend
     discord
     heroic

@@ -19,7 +19,7 @@
   nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.allowBroken = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.zfs.package = pkgs.zfs_unstable;
   boot.loader.zfsbootmenu = {
     enable = true;
