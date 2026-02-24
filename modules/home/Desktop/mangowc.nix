@@ -3,6 +3,7 @@
   config,
   pkgs,
   lib,
+  monitor,
   ...
 }:
 
@@ -242,7 +243,8 @@
     # MONITOR & DISPLAY CONFIG
     # ===============================================
     # Main display configuration (3840x2400 laptop screen)
-    monitorrule=name:eDP-1,width:3840,height:2400,scale:1.4,x:0,y:0,refresh:60
+    # monitorrule=name:eDP-1,width:3840,height:2400,scale:1.4,x:0,y:0,refresh:60
+    monitorrule=name:${monitor.name},width:${toString monitor.width},height:${toString monitor.height},scale:${toString monitor.scale},x:0,y:0,refresh:${toString monitor.refresh}
 
     # ===============================================
     # AUTOSTART & APPEARANCE
