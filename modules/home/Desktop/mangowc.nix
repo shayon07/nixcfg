@@ -187,8 +187,8 @@
     gesturebind=none,down,3,focusdir,up
 
     # 4-finger: Workspace navigation
-    gesturebind=none,right,3,viewtoleft_have_client
-    gesturebind=none,left,3,viewtoright_have_client
+    gesturebind=none,right,3,viewtoleft
+    gesturebind=none,left,3,viewtoright
     gesturebind=none,up,4,toggleoverview
     gesturebind=none,down,4,toggleoverview
 
@@ -238,6 +238,15 @@
 
     # Keybind overlays
     bind=SUPER+SHIFT,K,spawn_shell,dms ipc call keybinds toggle mangowc
+
+    # ===============================================
+    # Screenshots
+    # ===============================================
+    bind=Ctrl+SHIFT,0,spawn_shell,dms screenshot last --no-file                                 # Last Selected Region Clipboard only
+    bind=Ctrl+SHIFT,1,spawn_shell,dms screenshot --no-file                                      # Selected Region Clipboard only
+    bind=Ctrl+SHIFT,2,spawn_shell,dms screenshot full --no-file                                 # FullScreen Clipboard only
+    bind=Ctrl+SHIFT,3,spawn_shell,dms screenshot -f jpg -d ~/Pictures/Screenshots               # Selected Region Clipboard only
+    bind=ctrl+shift,4,spawn_shell,dms screenshot full -f jpg -d ~/Pictures/Screenshots          # fullscreen clipboard only
 
     # ===============================================
     # MONITOR & DISPLAY CONFIG
