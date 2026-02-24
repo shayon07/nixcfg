@@ -36,7 +36,7 @@
   # hardware.enableRedistributableFirmware = true;
 
   services.seatd.enable = true;
-  users.users.xox = {
+  users.users.kai = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
