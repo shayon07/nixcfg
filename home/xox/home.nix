@@ -15,6 +15,7 @@
     ../../modules/home/fish.nix
     ../../modules/home/starship.nix
     ../../modules/home/Desktop/mangowc.nix
+    ../../modules/home/gtk.nix
   ];
 
   home.username = "xox";
@@ -24,7 +25,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     nerd-fonts.iosevka-term
     nerd-fonts.jetbrains-mono
-    vimix-cursors
+    dconf
     pamixer
     pavucontrol
     zip
@@ -50,15 +51,6 @@
   '';
 
   fonts.fontconfig.enable = true;
-
-  # home.nix configuration
-  # home.pointerCursor = {
-  #     gtk.enable = true;
-  #     x11.enable = true;
-  #     package = pkgs.vimix-cursors;  #vanilla-dmz; # or pkgs.bibata-cursors
-  #     name =  "Vimix-cursors";  #"Vanilla-DMZ"; # or "Bibata-Modern-Classic"
-  #     size = 30;
-  # };
 
   programs.git = {
     enable = true;
