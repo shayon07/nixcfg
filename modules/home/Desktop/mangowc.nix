@@ -170,9 +170,6 @@
     mousebind=NONE,btn_middle,togglemaximizescreen,0
     # Super + Drag: Resize window  
     mousebind=SUPER,btn_right,moveresize,curresize
-    # Overview mode mouse controls
-    mousebind=NONE,btn_left,toggleoverview,1
-    mousebind=NONE,btn_right,killclient,0
 
     # ===============================================
     # GESTURES AND AXIS BINDINGS (Touchpad/Trackpad)
