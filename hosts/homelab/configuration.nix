@@ -57,7 +57,6 @@
     git
     tree
     bat
-    btop
     kitty
     xrdb
     wlr-randr # For monitor testing

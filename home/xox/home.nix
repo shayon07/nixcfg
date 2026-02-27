@@ -11,11 +11,12 @@
   imports = [
     ../../modules/home/Desktop/dms.nix
     ../../modules/home/kitty.nix
-    ../../modules/home/nvim/nvchad.nix
+    ../../modules/home/Editor/nvim/nvchad.nix
     ../../modules/home/fish.nix
     ../../modules/home/starship.nix
     ../../modules/home/Desktop/mangowc.nix
     ../../modules/home/gtk.nix
+    ../../modules/home/Editor/zed/zed.nix
   ];
 
   home.username = "xox";
@@ -34,7 +35,6 @@
     thunar
     wl-clipboard
     cliphist
-    python3
     qutebrowser
     localsend
     discord
